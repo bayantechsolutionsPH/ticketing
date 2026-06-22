@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Support Ticket</title>
+    <!-- Tailwind CSS for clean, modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-lg">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Submit a Support Request</h2>
+        <p class="text-gray-600 text-sm mb-6">No login required. Fill out the fields below, and our team will get back to you as soon as possible.</p>
+
+        <!-- Web3Forms Form handler -->
+        <form action="https://api.web3forms.com/submit" method="POST" id="ticketForm">
+            
+            <!-- REQUIRED: Your unique Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            
+            <!-- OPTIONAL: Customizes the email subject line you receive -->
+            <input type="hidden" name="subject" value="New Business Support Ticket">
+            
+            <!-- ANTI-SPAM: Honeypot Field (Hidden from humans, catching bots) -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <!-- Full Name -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="name">Full Name</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="name" id="name" placeholder="Juan Dela Cruz" required>
+            </div>
+
+            <!-- Contact Number -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="phone">Contact Number</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="tel" name="phone" id="phone" placeholder="09123456789" required>
+            </div>
+
+            <!-- Service Type -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="service">Service Needed</label>
+                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500" name="service_type" id="service" required>
+                    <option value="" disabled selected>Select a service...</option>
+                    <option value="Internet / Network Issue">Internet / Network Issue</option>
+                    <option value="CCTV Maintenance">CCTV Maintenance / Camera Down</option>
+                    <option value="Computer Repair">Computer Repair / Hardware</option>
+                    <option value="Software Setup">Software Setup & Configuration</option>
+                    <option value="Other">Other Inquiry</option>
+                </select>
+            </div>
+
+            <!-- Location / Address -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="address">Service Address / Location</label>
+                <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="address" id="address" placeholder="Street, Barangay, City" required>
+            </div>
+
+            <!-- Description of Issue -->
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-semibold mb-2" for="message">Describe the Problem</label>
+                <textarea class="w-full px-3 py-2 border border-gray-300 rounded-lg h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500" name="issue_description" id="message" placeholder="Please provide details (e.g., loss of internet connection, specific camera blinking red, etc.)" required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" type="submit">
+                Submit Ticket
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
